@@ -10,6 +10,7 @@ function createGifJs() {
     gifJs.on('finished', (blob, data) => {
         gifJs.abort()
         gifJs.frames = []
+        gui.recordingCheckBox.__li.hidden = false
         gui.abortRenderingController.__li.hidden = true
         gui.recordingLabel.setText(`Status: Rendering Finished`)
         // window.open(URL.createObjectURL(blob))

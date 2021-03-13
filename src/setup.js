@@ -38,6 +38,7 @@ function abortRendering() {
     isRecording = false
     gifJs.abort()
     gifJs.frames = []
+    gui.recordingCheckBox.__li.hidden = false
     gui.abortRenderingController.__li.hidden = true
     gui.recordingLabel.setText(`Status: Rendering Aborted`)
 }

@@ -9,7 +9,7 @@ function createGUI() {
 
     setFolder('Recording')
     gui.recordingLabel = addPlainText('Status: Inactive')
-    add(window, 'isRecording').name('Recording').onChange(() => {
+    gui.recordingCheckBox = add(window, 'isRecording').name('Recording').onChange(() => {
         if(isRecording && gifJs.running) {
             isRecording = false
             return
@@ -20,6 +20,7 @@ function createGUI() {
         }
         if(!isRecording) {
             gifJs.render()
+            gui.recordingCheckBox.__li.hidden = true
             gui.abortRenderingController.__li.hidden = false
         }
     }).listen()

@@ -16,11 +16,11 @@ function createGUI() {
         }
         if(isRecording) {
             gifJs = createGifJs()
-            gui.abortRenderingController.__li.hidden = false
             gui.recordingLabel.setText('Status: Recording')
         }
         if(!isRecording) {
             gifJs.render()
+            gui.abortRenderingController.__li.hidden = false
         }
     }).listen()
     gui.abortRenderingController = add(window, 'abortRendering').name('Abort Rendering')

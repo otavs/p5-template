@@ -19,7 +19,7 @@ function drawBegin() {
 
 function drawEnd() {
     if(isRecording)
-        gifJs.addFrame(canvas.elt, {delay: 1, copy: true})
+        gifJs.addFrame(canvas.elt, {delay: 1000/60, copy: true})
     stats.end()
 }
 
@@ -38,6 +38,7 @@ function abortRendering() {
     isRecording = false
     gifJs.abort()
     gifJs.frames = []
+    gui.recordingCheckBox.__li.hidden = false
     gui.abortRenderingController.__li.hidden = true
     gui.recordingLabel.setText(`Status: Rendering Aborted`)
 }

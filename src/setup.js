@@ -19,7 +19,7 @@ function drawBegin() {
 
 function drawEnd() {
     if(isRecording)
-        gifJs.addFrame(canvas.elt, {delay: 1, copy: true})
+        gifJs.addFrame(canvas.elt, {delay: 1000/60, copy: true})
     stats.end()
 }
 

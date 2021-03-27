@@ -42,3 +42,12 @@ function abortRendering() {
     gui.abortRenderingController.__li.hidden = true
     gui.recordingLabel.setText(`Status: Rendering Aborted`)
 }
+
+document.addEventListener('keydown', e => {
+    if(e.altKey && e.keyCode == 83) {  // s
+        if(isRecording && gifJs.running)
+            return
+        isRecording = !isRecording
+        gui.onChangeIsRecording()
+    }
+})

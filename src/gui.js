@@ -10,19 +10,18 @@ function createGUI() {
     setFolder('Recording')
     gui.recordingLabel = addPlainText('Status: Inactive')
     gui.onChangeIsRecording = () => {
-        if(isRecording && gifJs.running) {
-            isRecording = false
-            return
-        }
         if(isRecording) {
+            if(gifJs.running) {
+                isRecording = false
+                return
+            }
             gifJs = createGifJs()
             gui.recordingLabel.setText('Status: Recording')
+            return
         }
-        if(!isRecording) {
-            gifJs.render()
-            gui.recordingCheckBox.__li.hidden = true
-            gui.abortRenderingController.__li.hidden = false
-        }
+        gifJs.render()
+        gui.recordingCheckBox.__li.hidden = true
+        gui.abortRenderingController.__li.hidden = false
     }
     gui.recordingCheckBox = add(window, 'isRecording').name('Recording (Alt+S)').onChange(gui.onChangeIsRecording).listen()
     gui.abortRenderingController = add(window, 'abortRendering').name('Abort Rendering')

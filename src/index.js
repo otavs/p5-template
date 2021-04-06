@@ -1,5 +1,9 @@
 var nPoints = 3
 
+function setup_() {
+    
+}
+
 function draw_() {
     background('#fffdc7')
     translate(width * 0.5, height * 0.5)

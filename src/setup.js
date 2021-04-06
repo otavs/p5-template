@@ -1,10 +1,11 @@
-var canvas, gui, stats, gifJs, showStats = false, isRecording = false
+var canvas, gui, stats, gifJs, showStats = false, isRecording = false, {Vector} = p5
 
 function setup() {
     stats = createStats()
     gui = createGUI()
     gifJs = createGifJs()
     canvas = createCanvas(windowWidth, windowHeight)
+    setup_()
 }
 
 function draw() {
